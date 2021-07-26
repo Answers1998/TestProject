@@ -1,0 +1,6 @@
+python中读取文件目录常常遇到'\'与'/'和'\\',他们之间有什么关系和区别呢？
+1.首先是'\',例如：open('C:\user\admin\python\python.exe'),这个可以获取到该文件，但是如果是这样呢：open('C:\user\admin\python\news'),我们知道，\n在python中是换行的意思，那么这样写就会报错
+如果想用\表示路径，又怕出错，应该这样写:open(r'C:\user\admin\python\news'),r在python中是转义的意思，防止将\n视作换行
+2.其次是'\\',和r一样，\在python中也有转义的作用，open('C:\\user\\admin\\news')也可以正常表示，而且不用加'r'
+3.最后是'/','/'不会出现转义的情况，所以可以直接使用：open('C:/user/admin/python/news)
+总结：open(r'C:\user\admin\python\news') == open('C:\\user\\admin\\news') == open('C:/user/admin/python/news)
